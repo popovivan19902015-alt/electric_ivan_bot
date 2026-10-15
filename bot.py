@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Telegram-бот электрика для Казахстана. 
+Telegram-бот электрика для Казахстана.
 
 Смета считается на сервере по прайсу. Клиент не передаёт цену:
 кнопки присылают только короткие коды услуги, типа и комнаты.
@@ -18,9 +18,22 @@ import json
 import logging
 import os
 import re
+import subprocess
 import sys
 import threading
 from datetime import datetime, timedelta, timezone
+
+
+def _ensure_package(pip_name, module_name):
+    try:
+        __import__(module_name)
+    except ModuleNotFoundError:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", pip_name])
+
+
+_ensure_package("pyTelegramBotAPI==4.14.0", "telebot")
+_ensure_package("python-dotenv==1.0.0", "dotenv")
+_ensure_package("requests==2.31.0", "requests")
 
 import telebot
 from dotenv import load_dotenv
@@ -41,7 +54,7 @@ KZ_TZ = timezone(timedelta(hours=5), name="UTC+5")
 TIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 # Номер подставляется позже: достаточно задать переменные, код менять не нужно.
-KASPI_PHONE = os.getenv("KASPI_PHONE", "+7 776 XXX XXXX")
+KASPI_PHONE = os.getenv("KASPI_PHONE", "+7 7774222256")
 KASPI_HOLDER = os.getenv("KASPI_HOLDER", "Иван")
 
 # Заглушка нужна только чтобы модуль импортировался без токена (проверки расчёта).
