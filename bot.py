@@ -22,7 +22,7 @@ import re
 import sys
 import threading
 from datetime import datetime, timedelta, timezone
-
+import telebot
 import telebot
 from dotenv import load_dotenv
 from telebot import types
