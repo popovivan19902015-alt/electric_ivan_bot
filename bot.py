@@ -22,7 +22,7 @@ import subprocess
 import sys
 import threading
 from datetime import datetime, timedelta, timezone
-
+import telebot
 
 def _ensure_package(pip_name, module_name):
     try:
