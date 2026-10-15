@@ -41,7 +41,7 @@ KZ_TZ = timezone(timedelta(hours=5), name="UTC+5")
 TIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 # Номер подставляется позже: достаточно задать переменные, код менять не нужно.
-KASPI_PHONE = os.getenv("KASPI_PHONE", "+7 776 XXX XXXX")
+KASPI_PHONE = os.getenv("KASPI_PHONE", "+7 777 4222256")
 KASPI_HOLDER = os.getenv("KASPI_HOLDER", "Иван")
 
 # Заглушка нужна только чтобы модуль импортировался без токена (проверки расчёта).
