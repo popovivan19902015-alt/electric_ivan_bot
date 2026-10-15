@@ -1,3 +1,4 @@
+import telebot
 # -*- coding: utf-8 -*-
 """
 Telegram-бот электрика для Казахстана.
